@@ -1,0 +1,8 @@
+{
+	"name": "antd",
+	"description": "A clone of Laby in D.",
+	"copyright": "Copyright © 2014, Stefan Koch",
+	"authors": ["Uplink_Coder"],
+	"dependencies": {
+	}
+}
