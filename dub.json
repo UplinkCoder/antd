@@ -1,7 +1,7 @@
 {
 	"name": "antd",
-	"description": "A clone of Laby in D.",
-	"copyright": "Copyright © 2014, Stefan Koch",
+	"description": "A minimal D application.",
+	"copyright": "Copyright © 2014, root",
 	"authors": ["Uplink_Coder"],
 	"dependencies": {
 	}

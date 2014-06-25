@@ -104,7 +104,7 @@ struct Ant {
 		string toString() {
 			string r;
 			foreach (immutable _y; 1 .. laby.y+1) {
-				foreach (immutable _x; 1 .. laby.x+1) {
+				foreach (immutable _x; 0 .. laby.x+1) {
 					final switch (laby[_x,_y]) with (Laby.LabyObject) {
 						case _Ant : final switch(ori) with (Orientation) {
 							case North : r~= "^";

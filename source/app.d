@@ -4,14 +4,27 @@ import ant:Ant;
 import ant:Laby;
 
 
-immutable string ls =
-	`
+immutable string l1 =
+`
  -------------|
  |>R   |      E
  ----| | |----|
      | | |
      | W |
      -----`;
+immutable string l2 =
+`
+-------------------------------
+|                             |
+|                             |
+|                             |
+|---               |  -----   |
+|                  |     >|   |
+| |                |-------   |
+E |                           |
+|--                           |
+-------------------------------
+`;
 
 void main() {
 	//import derelict.fann.fann;
@@ -19,7 +32,8 @@ void main() {
 
 	string delegate(ref Ant ant)[string] commands;
 	commands["help"] = (ref ant){
-		return ("\t\ttype l to turn left
+		return ("
+		ttype l to turn left
 		type f to go forward
 		type t to take a rock
 		type d to drop a rock
@@ -60,7 +74,7 @@ void main() {
 		ant.right;
 		return ("turning right");
 	};
-	auto ant = Laby.createAnt(ls);
+	auto ant = Laby.createAnt(l1);
 	string command;
 
 	writeln("\t\t go to the exit 'E' \n \t\t type help for help");
