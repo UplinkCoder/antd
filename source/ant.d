@@ -25,10 +25,13 @@ struct Laby {
 		import std.array:array;
 
 		const(LabyObject) [const(char)] tokenMap =
-		    ['-':Wall,'|':Wall,
-			'E':Exit,' ':Void,
-			'R':Rock,'W':Web,
+		    ['-':Wall,'|':Wall, 'o':Wall,
+			'E':Exit,'x':Exit,
+			' ':Void,'.':Void,
+			'R':Rock,'r':Rock,
+			'W':Web,'w':Web,
 			'U':Unkown,
+			'↑':_Ant,'→':_Ant,'↓':_Ant,'←':_Ant,
 			'<':_Ant,'>':_Ant,'^':_Ant,'v':_Ant
 		]; 	
 
