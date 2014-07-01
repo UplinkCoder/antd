@@ -74,13 +74,15 @@ void main() {
 		ant.right;
 		return ("turning right");
 	};
-	auto ant = Laby.createAnt(l1);
+	auto pt = Laby.createLaby(l1); 
+	auto ant = pt.ant;
+	auto laby = pt.laby;
+
 	string command;
 
 	writeln("\t\t go to the exit 'E' \n \t\t type help for help");
-
 	while (command!="q") {
-		ant.writeln;
+		laby.show(ant.ori).writeln;
 		write(":>");
 		readf("%s\n",&command);
 		if (command in commands)
