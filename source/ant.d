@@ -95,4 +95,7 @@ extern (C) :
 			return false;
 		}
 	}
+	void say(string msg) {
+		writeln(msg);
+	}
 }
