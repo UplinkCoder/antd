@@ -1,7 +1,7 @@
 import std.stdio;
 import std.conv;
 import ant:Ant;
-import ant:Laby;
+import laby:Laby;
 
 
 immutable string l1 =
@@ -74,15 +74,13 @@ void main() {
 		ant.right;
 		return ("turning right");
 	};
-	auto pt = Laby.createLaby(l1); 
-	auto ant = pt.ant;
-	auto laby = pt.laby;
+	auto ant = Ant.createAnt(l2); 
 
 	string command;
 
 	writeln("\t\t go to the exit 'E' \n \t\t type help for help");
 	while (command!="q") {
-		laby.show(ant.ori).writeln;
+		ant.m_laby.show(ant.ori).writeln;
 		write(":>");
 		readf("%s\n",&command);
 		if (command in commands)
