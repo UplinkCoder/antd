@@ -11,7 +11,15 @@ extern (C) struct PT {
 extern (C) struct Laby {
 	extern (C):
 	alias posTuple = Tuple!(int,"x",int,"y");
+	/*struct posTuple {
+		int x;
+		int y;
+	}*/
 	alias pos = posTuple;
+	/*struct AP {
+		posTuple pos;
+		Ant.Orientation ori;
+	}*/
 	alias AP  = Tuple!(posTuple,"pos",Ant.Orientation,"ori");
 	
 	LabyObject opIndex(int x,int y) {
@@ -59,9 +67,9 @@ extern (C) struct Laby {
 		auto lines = laby.splitter('\n').array;
 		uint xmax=0;
 		uint ymax=0;
-		foreach (y,line;lines) {
+		foreach (int y,line;lines) {
 			if (y>ymax) ymax++;
-			foreach (x,char tok;line) {
+			foreach (int x,char tok;line) {
 				if (x>xmax) xmax++;
 				if (tokenMap[tok] == _Ant) {
 
