@@ -14,7 +14,7 @@ extern (C) :
 		dropRock,
 		escape
 	}
-	Laby.posTuple posi;
+	pos posi;
 	Orientation ori;
 	Laby m_laby;
 	bool hasRock;
@@ -22,7 +22,7 @@ extern (C) :
 		North,East,South,West
 	}
 			
-	private Laby.posTuple inFront() {
+	private pos inFront() {
 		final switch(ori) with (Orientation) {
 			case North : return Laby.posTuple(posi.x,posi.y-1);
 				//break;

@@ -1,4 +1,4 @@
-﻿module laby;
+module laby;
 import ant;
 import std.typecons;
 
@@ -8,14 +8,18 @@ extern (C) struct PT {
 	Laby laby;
 }
 
+extern(C) struct pos {
+	int x;
+	int y;
+
+	hash_t opHash() {
+		return ((cast(ulong)y) & uint.max) << 31 | x & uint.max; 
+	}
+}
+
 extern (C) struct Laby {
 	extern (C):
-	alias posTuple = Tuple!(int,"x",int,"y");
-	/*struct posTuple {
-		int x;
-		int y;
-	}*/
-	alias pos = posTuple;
+	alias posTuple = pos;
 	/*struct AP {
 		posTuple pos;
 		Ant.Orientation ori;
@@ -23,7 +27,7 @@ extern (C) struct Laby {
 	alias AP  = Tuple!(posTuple,"pos",Ant.Orientation,"ori");
 	
 	LabyObject opIndex(int x,int y) {
-		return laby.get(pos(x,y),Laby.Void);
+		return laby.get(pos(x,y), Laby.Void);
 	}
 	
 	LabyObject[posTuple] laby;
@@ -92,7 +96,8 @@ extern (C) struct Laby {
 		}
 		auto _laby = Laby(lab,xmax,ymax);
 		auto _ant = Ant(ant.expand,_laby);
-			return PT(_ant,_laby);
+
+		return PT(_ant,_laby);
 	}
 	
 	this(LabyObject[posTuple] lab,uint xmax,uint ymax) pure {
